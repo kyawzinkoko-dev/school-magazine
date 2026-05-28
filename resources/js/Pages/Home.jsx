@@ -123,9 +123,12 @@ export default function Welcome({ posts, filters, categories }) {
                             <h2 className="mb-4 text-3xl font-black text-white leading-tight">
                                 {featured.title}
                             </h2>
-                            <p className="mb-6 line-clamp-3 text-slate-400 text-sm">
-                                {featured.content}
-                            </p>
+                            <p
+                                className="mb-6 line-clamp-3 text-slate-400 text-sm"
+                                dangerouslySetInnerHTML={{
+                                    __html: featured.content,
+                                }}
+                            ></p>
                             <Link
                                 href={route("news.show", featured.slug)}
                                 className="flex items-center gap-2 font-black text-xs uppercase tracking-widest text-blue-400 hover:text-white transition"
@@ -177,8 +180,13 @@ export default function Welcome({ posts, filters, categories }) {
                                     {post.title}
                                 </Link>
                             </h3>
-                            <p className="mb-5 line-clamp-2 text-sm text-slate-500 leading-relaxed">
-                                {post.content}
+                            <p
+                                dangerouslySetInnerHTML={{
+                                    __html: post.content,
+                                }}
+                                className="mb-5 line-clamp-2 text-sm text-slate-500 leading-relaxed"
+                            >
+
                             </p>
                             <div className="mt-auto pt-4 border-t border-slate-50 flex justify-between items-center">
                                 <Link
